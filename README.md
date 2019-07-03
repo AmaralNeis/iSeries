@@ -1,6 +1,6 @@
 
 # iSeries
-O iSeries é um aplicativo de notícias do grupo Intelbras. Tem como objetivo atualizar seus usuários com as novas notícias da mídia. 
+O iSeries é um aplicativo de para você acompanhar o progresso de suas series.
 ### Executando 
   ``` Este projeto foi desenvolvido utilizando xCode 10.2.1 e Swift 4.2 ``` 
   Antes de executar o projeto é necessário instalar o `cocoapods`. Caso você não tenha o `cocoapods` instalado basta apenas clicar [aqui](https://guides.cocoapods.org/using/getting-started.html) e seguir o tutorial. 
