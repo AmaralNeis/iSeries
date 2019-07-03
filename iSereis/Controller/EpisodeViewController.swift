@@ -12,7 +12,7 @@ class EpisodeViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    private let activityIndicator = UIActivityIndicatorView(style: .white)
+    private let activityIndicator = UIActivityIndicatorView(style: .whiteLarge)
     private var seasonViewModel: SeasonViewModel!
     private var idSeason: Int!
     private var seasonNumber: Int!
@@ -26,10 +26,11 @@ class EpisodeViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.hiddenViewDetail(isHidden: true)
-        view.addSubview(activityIndicator)
-        activityIndicator.frame = view.bounds
+        
+        tableView.tableFooterView = UIView()
+        activityIndicator.center = view.center
         activityIndicator.startAnimating()
+        view.addSubview(activityIndicator)
         let _ = SeasonViewModel(idSeason: idSeason, seasonNumber: seasonNumber) { [weak self] (season) in
             self?.seasonViewModel = SeasonViewModel(with: season)
             DispatchQueue.main.async {
@@ -53,7 +54,6 @@ class EpisodeViewController: UIViewController {
     
     private func update() {
         setupTableView()
-        self.hiddenViewDetail(isHidden: false)
         self.activityIndicator.removeFromSuperview()
         tableView.reloadData()
     }
@@ -61,7 +61,7 @@ class EpisodeViewController: UIViewController {
     private func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.tableFooterView = UIView()
+        
         registerCell()
         
     }

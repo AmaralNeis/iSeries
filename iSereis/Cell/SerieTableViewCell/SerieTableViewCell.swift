@@ -19,6 +19,7 @@ class SerieTableViewCell: UITableViewCell {
     @IBOutlet weak var numberOfSeasonsLabel: UILabel!
     @IBOutlet weak var airDateLabel: UILabel!
     private let dataManger = DataManger()
+    private let activityIndicator = UIActivityIndicatorView(style: .whiteLarge)
     
     // MARK: - Setup
     override func awakeFromNib() {
@@ -27,7 +28,10 @@ class SerieTableViewCell: UITableViewCell {
     }
     
     func setupCell(with track: Track) {
+        clearValues()
+        setupActivityView()
         let _ = SerieViewModel(with: track.ids.tmdb) { [weak self] (serie) in
+            self?.activityIndicator.removeFromSuperview()
             self?.setupCell(with: SerieViewModel(with: serie))
         }
         
@@ -47,6 +51,22 @@ class SerieTableViewCell: UITableViewCell {
         
     }
     
+    private func setupActivityView() {
+        activityIndicator.startAnimating()
+        activityIndicator.color = .black
+        activityIndicator.center =  contentView.center
+        self.contentView.addSubview(activityIndicator)
+    }
+    
+    private func clearValues() {
+        self.titleLabel.text = ""
+        self.overviewLabel.text = ""
+        self.numberOfSeasonsLabel.text = ""
+        self.airDateLabel.text = ""
+        self.voteAverageLabel.text = ""
+        self.imageView?.image = nil
+    }
+    
     // MARK: - Get Serie Details
     private func getDetails(idSerie: Int, completion: @escaping (Bool, Serie) -> Void) {
         SerieService().getDetailsSerie(idSerie: idSerie) {(response, isSuccess) in
@@ -58,5 +78,5 @@ class SerieTableViewCell: UITableViewCell {
         }
     }
     
-
+    
 }

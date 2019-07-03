@@ -48,6 +48,7 @@ class DataManger: DataMangerProtocol {
     
     func addSerieMyList(with serie: SerieViewModel, isFavorite: Bool) {
         fetchRequest.predicate = NSPredicate(format: "id = %i", serie.id)
+        
         do{
             let values = try context.fetch(fetchRequest)
             if !values.isEmpty, let dataUpdate = values.first as? SerieData {
@@ -77,7 +78,10 @@ class DataManger: DataMangerProtocol {
     }
     
     func checkMyList(idSerie: Int, completion: @escaping (Bool) -> Void) {
-        fetchRequest.predicate = NSPredicate(format: "id = %i", idSerie)
+        let predicate1 = NSPredicate(format: "id = %i", idSerie)
+        let predicate2 = NSPredicate(format: "isFavorite = 1")
+        let predicateCompound = NSCompoundPredicate.init(type: .and, subpredicates: [predicate1,predicate2])
+        fetchRequest.predicate = predicateCompound
         do{
             let values = try context.fetch(fetchRequest)
             completion(!values.isEmpty)
