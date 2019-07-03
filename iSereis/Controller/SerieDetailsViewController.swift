@@ -54,9 +54,11 @@ class SerieDetailsViewController: UIViewController {
         setupTableView()
         self.overviewLabel.text = serieViewModel.overview
         self.hiddenViewDetail(isHidden: false)
-        self.addButton.isEnabled = true
-        self.addButton.alpha = 1.0
         self.activityIndicator.removeFromSuperview()
+        DataManger().checkMyList(idSerie: serieViewModel.id) { (isMyList) in
+            self.addButton.isEnabled = !isMyList
+            self.addButton.alpha = isMyList ? 0.5 : 1.0
+        }
     }
     
     private func setupTitle() {
@@ -73,6 +75,8 @@ class SerieDetailsViewController: UIViewController {
     // MARK: - Actions
     @IBAction func addMyList(_ sender: Any) {
         DataManger().addSerieMyList(with: serieViewModel, isFavorite: true)
+        self.addButton.isEnabled = false
+        self.addButton.alpha = 0.4
     }
 }
 

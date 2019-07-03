@@ -13,6 +13,7 @@ protocol DataMangerProtocol {
     func save(with serie: SerieViewModel, isMyList: Bool)
     func addSerieMyList(with serie: SerieViewModel, isFavorite: Bool)
     func getAllSeries(filter mylist: Bool, completion: @escaping ([SerieData]) -> Void)
+    func checkMyList(idSerie: Int, completion: @escaping (Bool) -> Void)
     
 }
 
@@ -73,6 +74,18 @@ class DataManger: DataMangerProtocol {
         }
         
         completion(series)
+    }
+    
+    func checkMyList(idSerie: Int, completion: @escaping (Bool) -> Void) {
+        fetchRequest.predicate = NSPredicate(format: "id = %i", idSerie)
+        do{
+            let values = try context.fetch(fetchRequest)
+            completion(!values.isEmpty)
+            
+        } catch {
+            NSLog("Falha checkMyList")
+            completion(false)
+        }
     }
     
 //    private func getSeasons() -> [Season] {
