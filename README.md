@@ -8,5 +8,6 @@ O iSeries é um aplicativo de notícias do grupo Intelbras. Tem como objetivo at
 ### Bibliotecas 
   - ``Alamofire`` -> Biblioteca utilizada para realizar a comunicação via request com a [api do desafio](http://ec2-34-215-199-111.us-west-2.compute.amazonaws.com:5000/desafio). Para conhecer um pouco mais clique [aqui](https://github.com/Alamofire/Alamofire) 
   - `Kingfisher` -> Biblioteca utilizada para baixar e armazenar em cache imagens da web. Para conhecer um pouco mais clique [aqui](https://github.com/onevcat/Kingfisher) 
-### Abrindo projeto Após executar o comando `pod install` vá até a pasta de seu projeto e abra o arquivo `iSeries.xcworkspace`.
+### Abrindo projeto 
+Após executar o comando `pod install` vá até a pasta de seu projeto e abra o arquivo `iSeries.xcworkspace`.
 
