@@ -1,0 +1,6 @@
+framework module Pods_iSereis {
+  umbrella header "Pods-iSereis-umbrella.h"
+
+  export *
+  module * { export * }
+}

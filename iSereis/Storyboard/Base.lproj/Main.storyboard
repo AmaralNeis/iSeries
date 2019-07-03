@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="CQX-Qi-Tmj">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Tab Bar Controller-->
+        <scene sceneID="MlN-Sb-FtM">
+            <objects>
+                <tabBarController id="CQX-Qi-Tmj" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="g5b-V2-Qcb">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="Jho-fz-XZ8" kind="relationship" relationship="viewControllers" id="Qux-O9-P5E"/>
+                        <segue destination="Dp7-Sy-BDj" kind="relationship" relationship="viewControllers" id="9Xk-f4-TuP"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wgb-NA-5vJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="816" y="48"/>
+        </scene>
+        <!--PopularTVShows-->
+        <scene sceneID="npK-Ri-bVn">
+            <objects>
+                <viewControllerPlaceholder storyboardName="PopularTVShows" id="Jho-fz-XZ8" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="bhI-Sk-aH6"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kRV-zJ-blU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="618" y="439"/>
+        </scene>
+        <!--MyTVShows-->
+        <scene sceneID="2dx-4c-7Vo">
+            <objects>
+                <viewControllerPlaceholder storyboardName="MyTVShows" id="Dp7-Sy-BDj" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="weh-CU-4gu"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="grV-6V-8zh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1096" y="444"/>
+        </scene>
+    </scenes>
+</document>

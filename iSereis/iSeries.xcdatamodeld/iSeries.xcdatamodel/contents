@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14490.99" systemVersion="18F132" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="EpisodeData" representedClassName="EpisodeData" syncable="YES" codeGenerationType="class">
+        <attribute name="airDate" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="episodeNumber" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="overview" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="stillPath" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="newRelationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SeasonData" inverseName="episodes" inverseEntity="SeasonData" syncable="YES"/>
+    </entity>
+    <entity name="IdsData" representedClassName="IdsData" syncable="YES" codeGenerationType="class">
+        <attribute name="tmdb" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
+    <entity name="SeasonData" representedClassName="SeasonData" syncable="YES" codeGenerationType="class">
+        <attribute name="airDate" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="episodeCount" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="overview" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="posterPath" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="seasonNumber" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="episodes" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="EpisodeData" inverseName="newRelationship" inverseEntity="EpisodeData" syncable="YES"/>
+        <relationship name="newRelationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SerieData" inverseName="seasons" inverseEntity="SerieData" syncable="YES"/>
+    </entity>
+    <entity name="SerieData" representedClassName="SerieData" syncable="YES" codeGenerationType="class">
+        <attribute name="firstAirDate" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="isFavorite" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="numberOfEpisodes" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="numberOfSeasons" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="overview" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="posterPath" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="voteAverage" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="seasons" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SeasonData" inverseName="newRelationship" inverseEntity="SeasonData" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="EpisodeData" positionX="-4820.953125" positionY="-2154.62890625" width="128" height="133"/>
+        <element name="IdsData" positionX="-4986" positionY="-2169" width="128" height="60"/>
+        <element name="SeasonData" positionX="-5155.80078125" positionY="-2139.828125" width="242.08203125" height="180"/>
+        <element name="SerieData" positionX="-5205.625" positionY="-2345.37890625" width="283.51953125" height="195"/>
+    </elements>
+</model>
